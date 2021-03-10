@@ -15,7 +15,17 @@
   \******************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var vendor2 = __webpack_require__(/*! vendor2 */ \"./node_modules/vendor2.js\");\nvar utility2 = __webpack_require__(/*! ./utility2 */ \"./utility2.js\");\nvar utility3 = __webpack_require__(/*! ./utility3 */ \"./utility3.js\");\n\nmodule.exports = \"pageB\";\n\n\n//# sourceURL=webpack:///./pageB.js?");
+eval("var vendor2 = __webpack_require__(/*! vendor2 */ \"./node_modules/vendor2.js\");\nvar vendor1 = __webpack_require__(/*! vendor1 */ \"./node_modules/vendor1.js\");\nvar utility2 = __webpack_require__(/*! ./utility2 */ \"./utility2.js\");\nvar utility3 = __webpack_require__(/*! ./utility3 */ \"./utility3.js\");\n\nmodule.exports = \"pageB\";\n\n\n//# sourceURL=webpack:///./pageB.js?");
+
+/***/ }),
+
+/***/ "./utility3.js":
+/*!*********************!*\
+  !*** ./utility3.js ***!
+  \*********************/
+/***/ ((module) => {
+
+eval("module.exports = \"utility3\";\n\n//# sourceURL=webpack:///./utility3.js?");
 
 /***/ })
 
@@ -68,7 +78,7 @@ eval("var vendor2 = __webpack_require__(/*! vendor2 */ \"./node_modules/vendor2.
 /******/ 		};
 /******/ 		
 /******/ 		var deferredModules = [
-/******/ 			["./pageB.js","vendor","commons-utility2_js","commons-utility3_js"]
+/******/ 			["./pageB.js","vendor","commons-utility2_js"]
 /******/ 		];
 /******/ 		// no chunk on demand loading
 /******/ 		

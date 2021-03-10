@@ -15,7 +15,17 @@
   \******************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var utility2 = __webpack_require__(/*! ./utility2 */ \"./utility2.js\");\nvar utility3 = __webpack_require__(/*! ./utility3 */ \"./utility3.js\");\n\nmodule.exports = \"pageC\";\n\n//# sourceURL=webpack:///./pageC.js?");
+eval("var utility2 = __webpack_require__(/*! ./utility2 */ \"./utility2.js\");\nvar utility3 = __webpack_require__(/*! ./utility3 */ \"./utility3.js\");\nvar vendor1 = __webpack_require__(/*! vendor1 */ \"./node_modules/vendor1.js\");\n\nmodule.exports = \"pageC\";\n\n//# sourceURL=webpack:///./pageC.js?");
+
+/***/ }),
+
+/***/ "./utility3.js":
+/*!*********************!*\
+  !*** ./utility3.js ***!
+  \*********************/
+/***/ ((module) => {
+
+eval("module.exports = \"utility3\";\n\n//# sourceURL=webpack:///./utility3.js?");
 
 /***/ })
 
@@ -68,7 +78,7 @@ eval("var utility2 = __webpack_require__(/*! ./utility2 */ \"./utility2.js\");\n
 /******/ 		};
 /******/ 		
 /******/ 		var deferredModules = [
-/******/ 			["./pageC.js","commons-utility2_js","commons-utility3_js"]
+/******/ 			["./pageC.js","vendor","commons-utility2_js"]
 /******/ 		];
 /******/ 		// no chunk on demand loading
 /******/ 		
