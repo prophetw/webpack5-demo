@@ -16,7 +16,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _my_statis_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./my-statis-module */ \"./my-statis-module.js\");\n/* harmony import */ var _my_statis_module__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_my_statis_module__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);\n//app.js\n\n__webpack_require__.e(/*! import() */ 216).then(__webpack_require__.t.bind(__webpack_require__, /*! jquery */ \"./node_modules/jquery.js\", 23))\n;\n__webpack_require__.e(/*! import() | my-dynamic-module */ 207).then(__webpack_require__.t.bind(__webpack_require__, /*! ./my-dynamic-module */ \"./my-dynamic-module.js\", 23))\n\n//# sourceURL=webpack:///./app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _my_statis_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./my-statis-module */ \"./my-statis-module.js\");\n/* harmony import */ var _my_statis_module__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_my_statis_module__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);\n//app.js\n\n__webpack_require__.e(/*! import() | jquery */ 216).then(__webpack_require__.t.bind(__webpack_require__, /*! jquery */ \"./node_modules/jquery.js\", 23))\n;\n__webpack_require__.e(/*! import() | my-dynamic-module */ 207).then(__webpack_require__.t.bind(__webpack_require__, /*! ./my-dynamic-module */ \"./my-dynamic-module.js\", 23))\n\n//# sourceURL=webpack:///./app.js?");
 
 /***/ }),
 
@@ -27,16 +27,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _my_
 /***/ (() => {
 
 eval("console.log('my-statis-module');\n\n//# sourceURL=webpack:///./my-statis-module.js?");
-
-/***/ }),
-
-/***/ "./node_modules/lodash.js":
-/*!********************************!*\
-  !*** ./node_modules/lodash.js ***!
-  \********************************/
-/***/ (() => {
-
-eval("console.log('lodash');\n\n//# sourceURL=webpack:///./node_modules/lodash.js?");
 
 /***/ })
 
@@ -68,6 +58,9 @@ eval("console.log('lodash');\n\n//# sourceURL=webpack:///./node_modules/lodash.j
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
+/******/ 	// the startup function
+/******/ 	// It's empty as some runtime module handles the default behavior
+/******/ 	__webpack_require__.x = x => {};
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -141,7 +134,7 @@ eval("console.log('lodash');\n\n//# sourceURL=webpack:///./node_modules/lodash.j
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + {"207":"my-dynamic-module","216":"vendors"}[chunkId] + ".js";
+/******/ 			return "" + "my-dynamic-module" + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -250,7 +243,9 @@ eval("console.log('lodash');\n\n//# sourceURL=webpack:///./node_modules/lodash.j
 /******/ 			387: 0
 /******/ 		};
 /******/ 		
-/******/ 		
+/******/ 		var deferredModules = [
+/******/ 			["./app.js",216]
+/******/ 		];
 /******/ 		__webpack_require__.f.j = (chunkId, promises) => {
 /******/ 				// JSONP chunk loading for javascript
 /******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
@@ -300,11 +295,11 @@ eval("console.log('lodash');\n\n//# sourceURL=webpack:///./node_modules/lodash.j
 /******/ 		
 /******/ 		// no HMR manifest
 /******/ 		
-/******/ 		// no deferred startup
+/******/ 		var checkDeferredModules = x => {};
 /******/ 		
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			var [chunkIds, moreModules, runtime, executeModules] = data;
 /******/ 			// add "moreModules" to the modules object,
 /******/ 			// then flag all "chunkIds" as loaded and fire callback
 /******/ 			var moduleId, chunkId, i = 0, resolves = [];
@@ -326,21 +321,49 @@ eval("console.log('lodash');\n\n//# sourceURL=webpack:///./node_modules/lodash.j
 /******/ 				resolves.shift()();
 /******/ 			}
 /******/ 		
+/******/ 			// add entry modules from loaded chunk to deferred list
+/******/ 			if(executeModules) deferredModules.push.apply(deferredModules, executeModules);
+/******/ 		
+/******/ 			// run deferred modules when all chunks ready
+/******/ 			return checkDeferredModules();
 /******/ 		}
 /******/ 		
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 		
-/******/ 		// no deferred startup
+/******/ 		function checkDeferredModulesImpl() {
+/******/ 			var result;
+/******/ 			for(var i = 0; i < deferredModules.length; i++) {
+/******/ 				var deferredModule = deferredModules[i];
+/******/ 				var fulfilled = true;
+/******/ 				for(var j = 1; j < deferredModule.length; j++) {
+/******/ 					var depId = deferredModule[j];
+/******/ 					if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferredModules.splice(i--, 1);
+/******/ 					result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 				}
+/******/ 			}
+/******/ 			if(deferredModules.length === 0) {
+/******/ 				__webpack_require__.x();
+/******/ 				__webpack_require__.x = x => {};
+/******/ 			}
+/******/ 			return result;
+/******/ 		}
+/******/ 		var startup = __webpack_require__.x;
+/******/ 		__webpack_require__.x = () => {
+/******/ 			// reset startup function so it can be called again when more startup code is added
+/******/ 			__webpack_require__.x = startup || (x => {});
+/******/ 			return (checkDeferredModules = checkDeferredModulesImpl)();
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./app.js");
+/******/ 	// run startup
+/******/ 	var __webpack_exports__ = __webpack_require__.x();
 /******/ 	
 /******/ })()
 ;

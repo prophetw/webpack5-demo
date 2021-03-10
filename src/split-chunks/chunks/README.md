@@ -65,13 +65,13 @@ module.exports = {
 
 ## 如果没有 splitChunks配置 打包结果如下 
 ```bash
-dist
-├── app1.js (app.js+所有的静态方式引入 import "xxx")
-├── app2.js (app2.js+所有的静态加载引入 import "xxx")
-├── jquery.js (import()方式引入 单独成包)
-└── my-dynamic-module.js (import()方式引入 单独成包)
+├── app1.js(app.js+所有的静态方式引入 import "xxx")
+├── app2.js(app2.js+所有的静态加载引入 import "xxx")
+├── jquery.js(import()方式引入 单独成包)
+├── lodash.js(import()方式引入 单独成包)
+└── my-dynamic-module.js(import()方式引入 单独成包)
 ```
-## splitChunks.chunks = async 打包如下
+## splitChunks.chunks = async(默认) 打包如下
 > 其实和上面的一样的结果 在上面的基础上 
 > 加了两个过滤条件 
 > 1.node_modules 里面的
@@ -84,31 +84,35 @@ dist
 ├── app1.js (所有的静态加载js+app.js + node_modules静态加载)
 ├── app2.js (所有的静态加载js+app2.js + node_modules静态加载)
 ├── my-dynamic-module.js (通过 import() 引入单独成包)
-└── vendors.js(node_modules里面通过 import("")方式引入 动态加载进来的)
+└── vendors.js(node_modules里面通过 import("")方式引入 动态加载进来的 此例中jquery+lodash)
 ```
 
 ## splitChunks.chunks = initial 打包如下
 > chunks : ‘initial’ tells webpack that,
 > Hey, webpack ! I don’t care about the dynamically imported modules, you can have separate files for each one of them. However, I want all my non-dynamically imported modules in one bundle, although I am ready to share and chunk my non-dynamically imported modules with other files if they also want non-dynamically imported modules.”
+> 结合上面的webpack配置 node_modules 里面，non-dynamically imported 打到一个包里面，把所有的动态加载的分成一个一个的包
 ```bash
 dist
-├── app1.js
-├── app2.js
-├── jquery.js
-├── my-dynamic-module.js
-└── vendors.js
+├── app1.js(import 引入的 my-statis-module + app.js)
+├── app2.js(import 引入的 my-statis-module + app2.js)
+├── jquery.js(app.js import()引入的 jquery node_modules里面的)
+├── lodash.js(app2.js import()引入的 lodash node_modules里面的)
+├── my-dynamic-module.js(import()引入的 非 node_modules文件夹下)
+└── vendors.js(import 方式引入的 node_modules里面的)
+dist
+├── 38.js 
+├── 49.js 
+├── app1.js 
+├── app2.js 
+├── my-dynamic-module.js 
+└── vendors.js 
 ```
 
-## splitChunks.chunks = async 打包如下
+## splitChunks.chunks = all 打包如下
 > chunks : ‘all’ tells webpack that,
 > Hey, webpack ! I don’t care if it is a dynamically imported module or non-dynamically imported module. Apply optimization over all of them. But make sure that…naah, you are smart enough to do that !”
 ```bash
-dist
-├── app1.js
-├── app2.js
-├── jquery.js
-├── my-dynamic-module.js
-└── vendors.js
+
 ```
 ### chunks async 默认
 > async 选项

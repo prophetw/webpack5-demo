@@ -1,6 +1,6 @@
 //app.js
 import "./my-statis-module";
-import("jquery")
+import("jquery" /* webpackChunkName: "jquery" */)
 import "lodash"
 import(
   /* webpackChunkName: "my-dynamic-module" */
