@@ -1,7 +1,7 @@
 # splitChunks 配置
 
 ## minChunks 
-> 最少被共享过 指定次数 才会被提取出来
+> 最少被引用过指定次数才会被提取出来
 
 
 ## cacheGroups.{groupName}.priority
