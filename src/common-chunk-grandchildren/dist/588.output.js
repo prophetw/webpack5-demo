@@ -1,0 +1,2 @@
+/*! For license information please see 588.output.js.LICENSE.txt */
+(self.webpackChunk=self.webpackChunk||[]).push([[588],{588:(e,l,n)=>{e.exports=function(){console.log("Page B"),Promise.all([n.e(421),n.e(145)]).then((()=>{n(145)()}).bind(null,n)).catch(n.oe)}}}]);

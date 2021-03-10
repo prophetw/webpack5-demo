@@ -1,0 +1,2 @@
+/*! For license information please see 366.output.js.LICENSE.txt */
+(self.webpackChunk=self.webpackChunk||[]).push([[366],{366:(e,n,o)=>{var s=o(421);e.exports=function(){console.log("Page A"),s()}}}]);

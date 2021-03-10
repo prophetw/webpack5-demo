@@ -1,0 +1,5 @@
+/*! ./pageA */
+
+/*! ./pageB */
+
+/*! require.ensure */

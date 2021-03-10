@@ -1,0 +1,2 @@
+/*! For license information please see chunk-bar-baz2.js.LICENSE.txt */
+(self.webpackChunk=self.webpackChunk||[]).push([[548],{544:(e,s,u)=>{"use strict";u.r(s),u.d(s,{default:()=>a});const a="baz"}}]);
