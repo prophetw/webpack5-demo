@@ -66,10 +66,10 @@ module.exports = {
 ## 如果没有 splitChunks配置 打包结果如下 
 ```bash
 dist
-├── app1.js (app.js+node_modules/jquery+node_modules/lodash+my-static-module)
-├── app2.js (app2.js+my-static-module+node_modules/lodash)
-├── jquery.js
-└── my-dynamic-module.js
+├── app1.js (app.js+所有的静态方式引入 import "xxx")
+├── app2.js (app2.js+所有的静态加载引入 import "xxx")
+├── jquery.js (import()方式引入 单独成包)
+└── my-dynamic-module.js (import()方式引入 单独成包)
 ```
 ## splitChunks.chunks = async 打包如下
 > 其实和上面的一样的结果 在上面的基础上 
@@ -83,8 +83,8 @@ dist
 dist
 ├── app1.js (所有的静态加载js+app.js + node_modules静态加载)
 ├── app2.js (所有的静态加载js+app2.js + node_modules静态加载)
-├── my-dynamic-module.js
-└── vendors.js(node_modules里面通过 import("")方式加载进来的)
+├── my-dynamic-module.js (通过 import() 引入单独成包)
+└── vendors.js(node_modules里面通过 import("")方式引入 动态加载进来的)
 ```
 
 ## splitChunks.chunks = initial 打包如下
