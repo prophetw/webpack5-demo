@@ -14,7 +14,7 @@
   \********************************/
 /***/ (() => {
 
-eval("console.log('jq');\n\n//# sourceURL=webpack:///./node_modules/jquery.js?");
+eval("console.log('jquery');\n\n//# sourceURL=webpack:///./node_modules/jquery.js?");
 
 /***/ }),
 
@@ -25,6 +25,16 @@ eval("console.log('jq');\n\n//# sourceURL=webpack:///./node_modules/jquery.js?")
 /***/ (() => {
 
 eval("console.log('lodash');\n\n//# sourceURL=webpack:///./node_modules/lodash.js?");
+
+/***/ }),
+
+/***/ "./node_modules/react.js":
+/*!*******************************!*\
+  !*** ./node_modules/react.js ***!
+  \*******************************/
+/***/ (() => {
+
+eval("console.log('react');\n\n//# sourceURL=webpack:///./node_modules/react.js?");
 
 /***/ })
 

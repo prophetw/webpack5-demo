@@ -91,6 +91,7 @@ dist
 > chunks : ‘initial’ tells webpack that,
 > Hey, webpack ! I don’t care about the dynamically imported modules, you can have separate files for each one of them. However, I want all my non-dynamically imported modules in one bundle, although I am ready to share and chunk my non-dynamically imported modules with other files if they also want non-dynamically imported modules.”
 > 结合上面的webpack配置 node_modules 里面，non-dynamically imported 打到一个包里面，把所有的动态加载的分成一个一个的包
+> 针对动态加载的 你原来是谁就是谁 保留自己的原样 
 ```bash
 dist
 ├── app1.js(import 引入的 my-statis-module + app.js)
@@ -111,17 +112,10 @@ dist
 ## splitChunks.chunks = all 打包如下
 > chunks : ‘all’ tells webpack that,
 > Hey, webpack ! I don’t care if it is a dynamically imported module or non-dynamically imported module. Apply optimization over all of them. But make sure that…naah, you are smart enough to do that !”
+> 把所有的 node_modules 里面不管是 动态还是静态加载的 全部打到一个包里面
 ```bash
-
+├── app1.js (app.js+my-statis-module.js 无 node_modules里面的)
+├── app2.js (app2.js+my-statis-module.js 无 node_modules里面的)
+├── my-dynamic-module.js(import()引入的 非 node_modules文件夹 所以单独打成了一个包)
+└── vendors.js(所有的 node_modules 不管是动态加载还是静态加载都是直接打进这个包里面 )
 ```
-### chunks async 默认
-> async 选项
-> 把所有的 动态加载 import('') 单独拿出来
-
-
-### chunks initial
-> 除 import('') 全部打到一个包里
-> import('') 每个单独拿出来
-
-### chunks all
-
