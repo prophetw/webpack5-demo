@@ -1,2 +1,0 @@
-/*! For license information please see 145.output.js.LICENSE.txt */
-(self.webpackChunk=self.webpackChunk||[]).push([[145],{145:(e,n,o)=>{var s=o(421);e.exports=function(){console.log("Page C"),s()}}}]);

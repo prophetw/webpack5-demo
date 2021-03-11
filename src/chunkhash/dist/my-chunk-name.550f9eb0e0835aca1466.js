@@ -1,1 +1,0 @@
-(self.webpackChunk=self.webpackChunk||[]).push([[317],{114:()=>{console.log(" hello ssss ")}}]);

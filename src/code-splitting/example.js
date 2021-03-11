@@ -1,6 +1,9 @@
 var a = require("a");
-var b = require("b");
+var p = require("./p");
 require.ensure(["c"], function(require) {
-    require("b").xyz();
-    var d = require("d");
+    var d = require("d")
+});
+require.ensure([], function(require) {
+    const b = require('b')
+    const q = require('./q')
 });

@@ -1,16 +1,14 @@
 var path = require("path");
 module.exports = {
-	// mode: "development",
-	mode: "production",
+	mode: "development",
+	// mode: "production",
 	entry: {
 		main: "./example"
 	},
 	optimization: {
-		runtimeChunk: true
+		// runtimeChunk: true
 	},
 	output: {
-		path: path.join(__dirname, "dist"),
-		filename: "[name].[chunkhash].js",
-		chunkFilename: "[name].[chunkhash].js"
+		clean: true
 	}
 };

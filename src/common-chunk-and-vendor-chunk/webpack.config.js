@@ -14,7 +14,7 @@ module.exports = {
 				default: false,
 				commons: {
 					chunks: "initial",
-					minChunks: 3, //The minimum times must a module be shared among chunks before splitting.
+					minChunks: 2, //The minimum times must a module be shared among chunks before splitting.
 					maxInitialRequests: 5, // The default limit is too small to showcase the effect
 					minSize: 0 // This is example is too small to create commons chunks
 				},

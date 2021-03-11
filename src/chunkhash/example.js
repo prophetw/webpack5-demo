@@ -1,7 +1,5 @@
 // some module
 import(
-  /* webpackChunkName: "my-chunk-name" */
-  /* webpackMode: "lazy" */
   "./async1"
   );
 import("./async2");
