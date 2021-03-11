@@ -1,3 +1,26 @@
+## require.ensure 的分包策略 
+```js 
+// test.js 
+var a = require("a");
+var p = require("./p");
+require.ensure(["c"], function(require) {
+    var d = require("d")
+});
+require.ensure([], function(require) {
+    const b = require('b')
+    const q = require('./q')
+});
+```
+> 以上 每一个 require.ensure 动态加载包 里面包含的都会打到一个包里面
+> 而 require() 同步加载的 如 a p  会和 test.js 打到一个包里面
+```bash
+dist
+├── main.js test.js + a + p
+├── node_modules_b_js-q_js.js  b + q
+└── node_modules_c_js-node_modules_d_js.js  c + d
+```
+
+
 This example illustrates a very simple case of Code Splitting with `require.ensure`.
 
 - `a` and `b` are required normally via CommonJS
@@ -28,28 +51,6 @@ You can see that chunks are loaded via JSONP. The additional chunks are pretty s
 * require("b").xyz();
 * const x = require("b"); x.xyz()
 > 以上会导致打包不太一样 下面是一个具体的例子
-
-## require.ensure 的分包策略 
-```js 
-// test.js 
-var a = require("a");
-var p = require("./p");
-require.ensure(["c"], function(require) {
-    var d = require("d")
-});
-require.ensure([], function(require) {
-    const b = require('b')
-    const q = require('./q')
-});
-```
-> 以上 每一个 require.ensure 动态加载包 里面包含的都会打到一个包里面
-> 而 require() 同步加载的 如 a p  会和 test.js 打到一个包里面
-```bash
-dist
-├── main.js test.js + a + p
-├── node_modules_b_js-q_js.js  b + q
-└── node_modules_c_js-node_modules_d_js.js  c + d
-```
 
 
 ## 代码结构
