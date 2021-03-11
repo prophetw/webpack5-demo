@@ -12,7 +12,10 @@ require.ensure([], function(require) {
 });
 ```
 > 以上 每一个 require.ensure 动态加载包 里面包含的都会打到一个包里面
+
 > 而 require() 同步加载的 如 a p  会和 test.js 打到一个包里面
+
+### 打包结果如下
 ```bash
 dist
 ├── main.js test.js + a + p
