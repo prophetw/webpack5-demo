@@ -27,6 +27,7 @@
   },
   "description": "My webpack project",
   "dependencies": {
+    "@types/webpack": "^4.41.26",
     "core-js": "^3.9.1",
     "date-fns": "^2.19.0",
     "lodash-es": "^4.17.21",
